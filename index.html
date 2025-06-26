@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SUPER PUPER COOL PAGE</title>
+
+  <style>
+    body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            background: black; 
+            color: lime; 
+            padding: 50px;
+        }
+        #ip { 
+            font-size: 32px; 
+            font-weight: bold; 
+            text-shadow: 0 0 10px lime;
+            margin: 20px;
+        }
+        #warning {
+            font-family: 'Courier New', monospace;
+            color: red;
+        }
+  </style>
+
+  
+</head>
+<body>
+  <h1>⚠️ WARNING: HELLO XD ⚠️</h1>
+    <div id="ip">Fetching your Data for idk what...</div>
+    <p id="warning">there is some text.</p>
+
+  <script>
+    // Fetch and display IP (no storage)
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip').innerText = data.ip;
+                document.getElementById('warning').innerHTML = 
+                    "🚨 siren emoji lol. k here is ur numbers (" + data.ip + ") haha";
+            })
+            .catch(() => {
+                document.getElementById('ip').innerText = "FAILED. TRY AGAIN.";
+            });
+
+        // Fake "hacking" effect
+        let dots = 0;
+        setInterval(() => {
+            dots = (dots + 1) % 4;
+            document.getElementById('ip').innerText = 
+                "Fetching your Data for idk what" + ".".repeat(dots);
+        }, 500);
+  </script>
+</body>
+</html>
